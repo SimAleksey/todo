@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+sadasd
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if not request.user.is_authenticated %}
+    <a href="{% url 'login' %}" class="home_reg"><h1>Зарегистрируйтесь</h1></a>
+    {% else %}
+    {% for el in title %}
+        {% if el.author == request.user %}
+            {% include 'includes/_card.html' %}
+        {% endif %}
+    {% endfor %}
+    <div class="add">
+        <span><a href="{% url 'create_title' %}">Создать блок для задач</a></span>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

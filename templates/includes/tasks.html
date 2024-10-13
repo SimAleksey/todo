@@ -1,0 +1,6 @@
+{% load static %}
+<ul class="list">
+    <a href="{% url 'delete_tasks' i.pk %}"><i class="bi bi-check-lg"></i></a>
+    <li>{{ i.time }}</li>
+    <li>{{ i }}</li>
+</ul>

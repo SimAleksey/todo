@@ -1,0 +1,17 @@
+{% load static %}
+
+<div class="card">
+    <ul class="flex">
+        <h1>{{ el.title }}</h1>
+        <a href="{% url 'create_tasks' el.pk %}"><i class="bi bi-plus-circle">Добавить задачу</i></a>
+        <b>{{ el.created_at }}</b>
+        <a href="{% url 'delete_title' el.pk %}" class="ml"><i class="bi bi-trash"></i></a>
+    </ul>
+    <div class="content">
+        {% for i in tasks %}
+        {% if i.category == el %}
+        {% include 'includes/tasks.html' %}
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
